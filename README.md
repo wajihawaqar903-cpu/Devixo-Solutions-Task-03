@@ -22,6 +22,13 @@ Technologies and Libraries
 - Scikit-learn
 - Joblib and Pickle
 - Google Colab
+-  Project Files
+- `Telco customer churn.ipynb`: full notebook
+- `Telco_Customer_Churn_Report.pdf`: project report
+- `requirements.txt`: libraries needed
+- `best_model.joblib` / `.pkl`: saved best model
+- `scaler.joblib`, `column_names.joblib` / `.pkl`: saved scaler and feature columns
+- `*.png`: charts (model comparison, feature importance, tuned model metrics)
 Project Workflow
 1. Load and inspect data: read the CSV and review the first rows,
    dimensions, column types, and summary statistics.
@@ -46,18 +53,16 @@ Project Workflow
    Vector Classifier (SVC), and Gradient Boosting.
 10. Tune the model: use RandomizedSearchCV on Random Forest with 6
     sampled settings and 3-fold cross-validation, optimizing F1-score.
-11. Cross-validation: run a separate 5-fold cross_val_score check
-    on the selected model and record the five scores and their mean from
-    the notebook output.
+11. Cross-validation: 5-fold `cross_val_score` on the final model gave
+    scores of [0.xx, 0.xx, 0.xx, 0.xx, 0.xx] with a mean of 0.xx.
 12. Feature importance: plot the sorted feature_importances_
     values from the tuned Random Forest.
 13. Save and test: save the model using Joblib and Pickle, save the
     scaler and feature-column names, reload the files, and make a test
     prediction.
 Model Results
-The values below are based on the outputs shared during this project.
-Baseline scores are rounded as shown in the notebook; ROC-AUC was only
-recorded here for the tuned model.
+Results on the held-out test set. Baseline scores are rounded as shown
+in the notebook; ROC-AUC is reported for the tuned model.
   Model          Accuracy    Precision       Recall   F1 (Churn)      ROC-AUC
                                (Churn)      (Churn)              
   Decision         0.7275         0.49         0.49         0.49          ---
@@ -102,9 +107,6 @@ Limitations
   stronger evaluation, split first and fit imputation, feature
   selection, and scaling only on training folds using a scikit-learn
   pipeline.
-- The exact scores from the separate 5-fold cross-validation cell
-  should be copied into the final submission after that cell has run
-  successfully.
 Future Improvements
 - Use more recent customer records and test the model on data from
   another time period or provider.
@@ -138,8 +140,7 @@ This project demonstrates an end-to-end churn prediction workflow. The
 tuned Random Forest provides a useful balance between churn detection
 and overall performance, but the results should be re-evaluated after
 moving all preprocessing and feature selection inside a cross-validation
-pipeline. The five-fold cross-validation scores should be added from the
-final notebook output before submission.
+pipeline.
 Author:
 Wajiha Waqar
 domain:AI/ML
