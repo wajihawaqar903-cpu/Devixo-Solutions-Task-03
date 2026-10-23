@@ -29,6 +29,7 @@ Technologies and Libraries
 - `best_model.joblib` / `.pkl`: saved best model
 - `scaler.joblib`, `column_names.joblib` / `.pkl`: saved scaler and feature columns
 - `*.png`: charts (model comparison, feature importance, tuned model metrics)
+- streamlit Web Application
 Project Workflow
 1. Load and inspect data: read the CSV and review the first rows,
    dimensions, column types, and summary statistics.
@@ -141,6 +142,32 @@ tuned Random Forest provides a useful balance between churn detection
 and overall performance, but the results should be re-evaluated after
 moving all preprocessing and feature selection inside a cross-validation
 pipeline.
+## Streamlit Web Application
+
+A web application was developed using Streamlit to demonstrate the trained machine learning model. It allows users to enter customer details and receive a churn prediction along with the estimated probability of churn.
+
+**Application features:**
+- Accepts customer information through an interactive interface.
+- Uses the trained Random Forest model to predict customer churn.
+- Displays the predicted churn probability.
+- Uses the saved model, scaler, and feature column names.
+
+**Technologies Used:** Python, Streamlit, Pandas, Scikit-learn, and Joblib.
+
+**How to Run the Application:**
+
+1. Install the required libraries:
+   ```bash
+   python -m pip install streamlit pandas scikit-learn joblib
+   ```
+2. Open a terminal in the folder containing `app.py` and the saved model files.
+3. Run:
+   ```bash
+   python -m streamlit run app.py
+   ```
+
+The application opens in a web browser where users can enter customer details and view predictions.
+
 Author:
 Wajiha Waqar
 domain:AI/ML
